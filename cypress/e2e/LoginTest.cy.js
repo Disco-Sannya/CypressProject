@@ -1,8 +1,10 @@
 ///<reference types = "cypress"/>
 
 import { LoginPage } from "../support/pomClass/LoginPage"
+import { ResetPassword } from "../support/pomClass/ResetPassword"
 
 const loginObj = new LoginPage()
+const resetObj = new ResetPassword()
 
 beforeEach(function () {
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
@@ -20,6 +22,23 @@ describe('Login to application', () => {
     loginObj.enterUsername('Admin123')
     loginObj.enterPassword('admin')
     loginObj.clickOnLoginButton()
+  })
+
+})
+
+
+describe('Reset Password Test', () => {
+
+  it('Enter Mail and Reset', () => {
+    loginObj.clickOnForgetPasswordLink()
+    resetObj.enterResetUsername('admin@test.com')
+    resetObj.clickOnResetBtn()
+  })
+
+  it('Enter Mail and Cancel Button', () => {
+    loginObj.clickOnForgetPasswordLink()
+    resetObj.enterResetUsername('admin@test.com')
+    resetObj.clickOnCancelBtn()
   })
 
 })
