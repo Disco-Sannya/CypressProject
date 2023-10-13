@@ -10,6 +10,7 @@ beforeEach(function () {
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 })
 
+//Login Application
 describe('Login to application', () => {
 
   it('Login with Valid Credentials', () => {
@@ -27,6 +28,7 @@ describe('Login to application', () => {
 })
 
 
+//Reset Password
 describe('Reset Password Test', () => {
 
   it('Enter Mail and Reset', () => {
